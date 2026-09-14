@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>English Performance Mentor | David Basantes</title>
+<meta name="description" content="Mentoría privada one-on-one para TOEFL, IELTS y Speaking Académico. No necesitas más inglés. Necesitas estrategia, estructura y seguridad bajo presión.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<style>
+  :root{
+    --bg: #F6FAFF;
+    --bg-tint-blue: #EAF3FF;
+    --bg-tint-coral: #FFF3E4;
+    --text: #1D2939;
+    --text-dim: #4A5568;
+    --text-faint: #667085;
+    --blue: #1857A4;
+    --blue-deep: #0F3F7D;
+    --coral: #FF6F59;
+    --gold: #FFC93C;
+    --teal: #0E9490;
+    --border: #E3E9F3;
+    --display: "Segoe UI", "Trebuchet MS", system-ui, -apple-system, sans-serif;
+    --sans: "Segoe UI", "Trebuchet MS", system-ui, -apple-system, sans-serif;
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  body{ background:var(--bg); color:var(--text); font-family:var(--sans); line-height:1.6; -webkit-font-smoothing:antialiased; }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ animation-duration:0.001ms !important; transition-duration:0.001ms !important; }
+  }
+
+  a{ color:inherit; }
+  .wrap{ max-width:1080px; margin:0 auto; padding:0 28px; }
+
+  h1,h2,h3{ font-family:var(--display); font-weight:700; line-height:1.15; letter-spacing:-0.01em; color:var(--text); }
+  h1{ font-size:clamp(2.4rem,5vw,3.7rem); font-weight:800; }
+  h2{ font-size:clamp(1.7rem,3.2vw,2.3rem); margin-bottom:20px; }
+  h3{ font-size:1.2rem; }
+  p{ color:var(--text-dim); max-width:60ch; }
+
+  .eyebrow{ display:inline-flex; align-items:center; font-family:var(--sans); font-weight:800; font-size:0.78rem; letter-spacing:0.02em; color:#fff; background:var(--blue); padding:7px 16px; border-radius:999px; box-shadow:0 3px 0 var(--blue-deep); }
+
+  /* Header */
+  header{ position:sticky; top:0; z-index:50; background:rgba(255,255,255,0.9); backdrop-filter:blur(8px); border-bottom:1px solid var(--border); }
+  header .wrap{ display:flex; align-items:center; justify-content:space-between; height:76px; }
+  .brand{ font-family:var(--display); font-weight:800; font-size:1.15rem; text-decoration:none; }
+  .brand span{ color:var(--blue); }
+  .nav-cta{ font-family:var(--sans); font-weight:800; font-size:0.9rem; color:#fff; background:var(--coral); padding:11px 22px; border-radius:999px; text-decoration:none; white-space:nowrap; box-shadow:0 4px 0 #D9503D; }
+  .nav-cta:hover{ transform:translateY(1px); box-shadow:0 3px 0 #D9503D; }
+
+  /* Hero */
+  .hero{ padding:80px 0 70px; }
+  .hero .wrap{ display:grid; grid-template-columns:1.25fr 0.95fr; gap:52px; align-items:center; }
+  .hero h1{ margin:16px 0 20px; }
+  .hero .lede{ font-size:1.1rem; margin-bottom:32px; }
+  .cta-row{ display:flex; gap:16px; flex-wrap:wrap; align-items:center; }
+  .btn-primary{ display:inline-block; background:var(--coral); color:#fff; font-weight:800; font-size:0.98rem; padding:15px 28px; border-radius:999px; text-decoration:none; box-shadow:0 4px 0 #D9503D; transition:transform .12s, box-shadow .12s; }
+  .btn-primary:hover{ transform:translateY(2px); box-shadow:0 2px 0 #D9503D; }
+  .btn-ghost{ display:inline-block; color:var(--blue); font-weight:800; font-size:0.9rem; text-decoration:none; background:#fff; border:1.5px solid var(--border); padding:14px 24px; border-radius:999px; }
+  .btn-ghost:hover{ border-color:var(--blue); }
+
+  .scorecard{ background:var(--bg-tint-blue); border-radius:24px; padding:32px; }
+  .scorecard .eyebrow{ margin-bottom:20px; }
+  .score-row{ display:flex; align-items:center; justify-content:space-between; gap:10px; }
+  .score{ text-align:center; }
+  .score .num{ font-family:var(--display); font-weight:800; font-size:2.6rem; color:var(--text-faint); }
+  .score.after .num{ color:var(--blue); }
+  .score .cap{ font-size:0.72rem; font-weight:600; color:var(--text-faint); margin-top:2px; }
+  .score-arrow{ color:var(--coral); font-size:1.6rem; font-weight:700; }
+  .score-bar{ height:8px; background:#DCE3FF; border-radius:999px; margin:24px 0 16px; overflow:hidden; }
+  .score-bar span{ display:block; height:100%; width:72%; background:var(--coral); border-radius:999px; }
+  .scorecard .foot{ font-size:0.85rem; color:var(--text-faint); }
+
+  /* Sections */
+  section{ padding:72px 0; }
+  section.tint-blue{ background:var(--bg-tint-blue); }
+  section.tint-coral{ background:var(--bg-tint-coral); }
+  .section-head{ max-width:640px; margin-bottom:40px; }
+
+  .pain-list{ list-style:none; display:grid; gap:14px; margin-top:26px; }
+  .pain-list li{ color:var(--text-dim); padding-left:26px; position:relative; max-width:56ch; }
+  .pain-list li::before{ content:''; position:absolute; left:0; top:0.5em; width:10px; height:10px; background:var(--coral); border-radius:3px; }
+  .pain-conclusion{ margin-top:30px; font-family:var(--display); font-weight:700; font-size:1.35rem; max-width:44ch; }
+
+  .diff-grid{ display:grid; grid-template-columns:1fr 1fr; gap:36px; margin-top:28px; }
+  .diff-grid ul{ list-style:none; display:grid; gap:12px; }
+  .diff-grid li{ color:var(--text-dim); }
+  .diff-grid .col-title{ font-weight:700; font-size:0.85rem; color:var(--text-faint); margin-bottom:16px; }
+  .diff-grid .col-title.pos{ color:var(--blue); }
+
+  /* Mentor */
+  .mentor-grid{ display:grid; grid-template-columns:250px 1fr; gap:48px; align-items:start; }
+  .mentor-photo{ width:100%; aspect-ratio:3/4; background:var(--bg-tint-coral); border-radius:20px; display:flex; align-items:center; justify-content:center; text-align:center; color:var(--text-faint); font-size:0.85rem; padding:20px; font-weight:600; }
+
+  .photo-band{ width:100%; aspect-ratio:16/6; background:var(--bg-tint-blue); border-radius:24px; display:flex; align-items:center; justify-content:center; text-align:center; color:var(--text-faint); font-size:0.9rem; font-weight:600; padding:20px; margin-top:40px; }
+  .photo-inline{ width:100%; aspect-ratio:4/3; background:#F4F5F7; border-radius:20px; display:flex; align-items:center; justify-content:center; text-align:center; color:var(--text-faint); font-size:0.85rem; font-weight:600; padding:20px; }
+  .problema-grid{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:44px; align-items:center; }
+  @media (max-width:860px){ .problema-grid{ grid-template-columns:1fr; } }
+  .credentials{ list-style:none; display:grid; gap:10px; margin:20px 0 28px; }
+  .credentials li{ font-size:0.94rem; color:var(--text-dim); padding-left:16px; border-left:3px solid var(--blue); }
+  .quote{ background:var(--bg-tint-blue); border-radius:20px; padding:28px; margin-top:6px; }
+  .quote p{ color:var(--text); font-size:1.05rem; max-width:58ch; margin-bottom:14px; }
+  .quote p:last-child{ margin-bottom:0; }
+
+  /* Framework */
+  .framework{ display:grid; gap:24px; margin-top:30px; }
+  .step{ display:grid; grid-template-columns:56px 1fr; gap:22px; }
+  .step-num{ width:56px; height:56px; border-radius:50%; background:var(--blue); color:#fff; font-family:var(--display); font-weight:800; font-size:1.25rem; display:flex; align-items:center; justify-content:center; box-shadow:0 3px 0 var(--blue-deep); }
+  .step:nth-child(1) .step-num{ background:var(--coral); box-shadow:0 3px 0 #D9503D; }
+  .step:nth-child(2) .step-num{ background:var(--teal); box-shadow:0 3px 0 #0B6E6B; }
+  .step:nth-child(3) .step-num{ background:var(--gold); color:#5C4300; box-shadow:0 3px 0 #D9A61E; }
+  .step:nth-child(4) .step-num{ background:var(--blue); box-shadow:0 3px 0 var(--blue-deep); }
+  .step ul{ list-style:none; display:grid; gap:8px; margin-top:10px; }
+  .step li{ color:var(--text-dim); font-size:0.95rem; }
+
+  /* Whom */
+  .whom-grid{ display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:28px; }
+  .whom-card{ padding:28px; border-radius:20px; }
+  .whom-card.yes{ background:var(--bg-tint-blue); }
+  .whom-card.no{ background:#F4F5F7; }
+  .whom-card .col-title{ font-weight:700; font-size:0.85rem; margin-bottom:16px; }
+  .whom-card.yes .col-title{ color:var(--blue); }
+  .whom-card.no .col-title{ color:var(--text-faint); }
+  .whom-card ul{ list-style:none; display:grid; gap:12px; }
+  .whom-card li{ color:var(--text-dim); font-size:0.95rem; }
+
+  /* Testimonials */
+  .testi-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:28px; }
+  .testi-card{ background:#fff; border:1.5px dashed var(--border); border-radius:18px; padding:24px; font-size:0.92rem; color:var(--text-faint); }
+  .testi-card .who{ margin-top:14px; font-weight:600; font-size:0.8rem; color:var(--text-faint); }
+
+  /* Pricing */
+  .price-table{ margin-top:28px; }
+  .price-row{ display:grid; grid-template-columns:1fr auto; gap:16px; align-items:center; padding:20px 24px; background:#fff; border-radius:16px; margin-bottom:12px; border:1px solid var(--border); }
+  .price-row .name{ font-weight:600; }
+  .price-row .hrs{ font-size:0.82rem; color:var(--text-faint); font-weight:400; }
+  .price-row .amount{ font-family:var(--display); font-weight:800; font-size:1.5rem; color:var(--blue); white-space:nowrap; }
+  .price-note{ margin-top:20px; font-size:0.9rem; color:var(--text-faint); }
+
+  /* Access */
+  .access-steps{ display:grid; grid-template-columns:repeat(3,1fr); gap:26px; margin-top:28px; }
+  .access-step .step-num{ width:44px; height:44px; font-size:1rem; margin-bottom:14px; }
+  .access-step p{ font-size:0.94rem; }
+
+  /* FAQ */
+  details{ border-bottom:1px solid var(--border); padding:20px 0; }
+  summary{ cursor:pointer; font-family:var(--display); font-weight:700; font-size:1.05rem; list-style:none; display:flex; justify-content:space-between; align-items:center; }
+  summary::-webkit-details-marker{ display:none; }
+  summary::after{ content:'+'; color:var(--coral); font-size:1.4rem; font-weight:700; }
+  details[open] summary::after{ content:'–'; }
+  details p{ margin-top:14px; font-size:0.95rem; }
+
+  /* Final CTA */
+  .final-cta{ text-align:center; padding:90px 0; }
+  .final-cta .eyebrow{ margin-bottom:16px; }
+  .final-cta h2{ margin:0 auto 16px; }
+  .final-cta p{ margin:0 auto 32px; }
+
+  footer{ padding:40px 0; }
+  footer .wrap{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; }
+  footer p{ font-size:0.85rem; color:var(--text-faint); }
+
+  :focus-visible{ outline:2px solid var(--blue); outline-offset:3px; }
+
+  @media (max-width:860px){
+    .hero .wrap{ grid-template-columns:1fr; }
+    .mentor-grid{ grid-template-columns:1fr; }
+    .mentor-photo{ max-width:220px; }
+    .diff-grid, .whom-grid{ grid-template-columns:1fr; }
+    .access-steps, .testi-grid{ grid-template-columns:1fr; }
+    .price-row{ grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="#top">English Performance <span>Mentor</span></a>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <h1>Habla inglés con estructura. Desempéñate con confianza.</h1>
+        <span class="eyebrow" style="margin:14px 0 20px; display:inline-flex;">Mentoría privada · TOEFL / IELTS / Speaking Académico</span>
+        <p class="lede">No necesitas "más inglés". Necesitas estrategia, estructura y seguridad cuando estás bajo presión.</p>
+        <div class="cta-row">
+          <a class="btn-primary" href="https://masterdavidbasantes.github.io/English-Program/#placement-test-home" target="_blank" rel="noopener">Test de Ubicación Gratuito</a>
+        </div>
+        <div class="photo-band">Foto banner: tú dando una clase por Zoom, o un estudiante hablando con confianza<br>(reemplazar — sugerido: foto tuya real)</div>
+      </div>
+      <div class="scorecard">
+        <span class="eyebrow">Progreso típico · Speaking Band</span>
+        <div class="score-row">
+          <div class="score"><div class="num">5.5</div><div class="cap">DIAGNÓSTICO</div></div>
+          <div class="score-arrow">→</div>
+          <div class="score after"><div class="num">7.5</div><div class="cap">META ALCANZADA</div></div>
+        </div>
+        <div class="score-bar"><span></span></div>
+        <div class="foot">Diagnóstico · Estructuración · Entrenamiento bajo presión · Retroalimentación</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tint-coral">
+    <div class="wrap">
+      <div class="problema-grid">
+        <div>
+          <div class="section-head" style="margin-bottom:0;">
+            <h2>¿Sabes más inglés del que puedes demostrar?</h2>
+            <p>Lees bien. Entiendes bien. Has estudiado durante años. Pero cuando llega el momento de hablar — especialmente en un examen — tu mente se bloquea.</p>
+          </div>
+          <ul class="pain-list">
+            <li>No sabes cómo organizar tus ideas rápido</li>
+            <li>Te quedas en blanco bajo presión</li>
+            <li>Sientes que no suenas tan inteligente como realmente eres</li>
+            <li>Tus respuestas no tienen estructura clara</li>
+            <li>El tiempo se te va demasiado rápido</li>
+          </ul>
+          <p class="pain-conclusion">El problema no es tu nivel de inglés. El problema es rendimiento bajo presión.</p>
+        </div>
+        <div class="photo-inline">Foto: estudiante nervioso/a antes de un examen de speaking<br>(sugerido: stock con licencia de Unsplash/Pexels)</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <h2>No son clases tradicionales de inglés</h2>
+        <p>La mayoría enseña gramática y vocabulario. Pero exámenes como TOEFL o IELTS exigen otra cosa.</p>
+      </div>
+      <div class="diff-grid">
+        <div>
+          <div class="col-title">EXIGEN</div>
+          <ul>
+            <li>Pensamiento estructurado</li>
+            <li>Argumentación clara</li>
+            <li>Organización rápida de ideas</li>
+            <li>Control emocional al hablar</li>
+          </ul>
+        </div>
+        <div>
+          <div class="col-title pos">AQUÍ ENTRENAMOS</div>
+          <ul>
+            <li>Rendimiento, no solo contenido</li>
+            <li>Estructura repetible bajo presión</li>
+            <li>Simulación de condiciones reales</li>
+            <li>Confianza medible sesión a sesión</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tint-blue">
+    <div class="wrap">
+      <div class="mentor-grid">
+        <div class="mentor-photo">Foto de David Basantes<br>(reemplazar con imagen real)</div>
+        <div>
+          <span class="eyebrow">Mentor</span>
+          <h3 style="margin-top:10px;">Master David Basantes Fierro</h3>
+          <ul class="credentials">
+            <li>Pontificia Universidad Católica del Ecuador</li>
+            <li>Instructor TOEFL iBT Certificado · Autorizado por SETEC</li>
+            <li>EFL / ESL · Juniata College, Pensilvania</li>
+            <li>ESL · Escuela Politécnica del Ecuador</li>
+            <li>Instructor de Inglés en UDLA</li>
+            <li>Instructor de Inglés en ILE</li>
+          </ul>
+          <div class="quote">
+            <p>"Trabajo uno a uno con estudiantes y profesionales que tienen metas claras: estudiar en el extranjero, obtener becas, migrar, alcanzar un puntaje específico."</p>
+            <p>"Mi enfoque combina estrategia de examen, estructuras claras para responder, corrección profunda y personalizada, y entrenamiento mental para hablar con seguridad."</p>
+            <p>"Porque aprobar un examen no se trata de saber más palabras. Se trata de pensar con claridad cuando más importa."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="framework">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>The Performance Framework™</h2>
+        <p>Un sistema estructurado de mentoría diseñado para escenarios de alta exigencia.</p>
+      </div>
+      <div class="framework">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div><h3>Diagnóstico estratégico</h3><p>Identificamos debilidades estructurales, errores recurrentes, problemas de coherencia y bloqueos de confianza. Nada genérico. Todo personalizado — empezando por mi <a href="https://masterdavidbasantes.github.io/English-Program/#placement-test-home" target="_blank" rel="noopener" style="color:var(--blue); font-weight:700;">test de ubicación interactivo</a>, gratuito y con resultados en tiempo real.</p></div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div><h3>Estructuración inteligente</h3>
+            <ul><li>Organizar ideas en segundos</li><li>Construir respuestas sólidas</li><li>Argumentar con claridad</li><li>Sonar académico sin memorizar</li></ul>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div><h3>Entrenamiento bajo presión</h3><p>Simulamos condiciones reales de examen: speaking cronometrado, correcciones en tiempo real, repetición estratégica, control de nervios. No solo practicas. Entrenas.</p></div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div><h3>Retroalimentación de alto nivel</h3><p>Corrección detallada en coherencia, fluidez, vocabulario académico y pronunciación, contra las expectativas reales del examinador. Progreso visible y medible.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head"><h2>Para quién es esta mentoría</h2></div>
+      <div class="whom-grid">
+        <div class="whom-card yes">
+          <div class="col-title">ES PARA TI SI</div>
+          <ul>
+            <li>Necesitas un puntaje específico en TOEFL o IELTS</li>
+            <li>Te tomas en serio tu meta internacional</li>
+            <li>Prefieres guía personalizada, no clases grupales</li>
+            <li>Sientes nervios al hablar</li>
+            <li>Quieres estructura y claridad</li>
+          </ul>
+        </div>
+        <div class="whom-card no">
+          <div class="col-title">NO ES PARA</div>
+          <ul>
+            <li>Quien busca clases económicas</li>
+            <li>Quien quiere aprender inglés "relajado"</li>
+            <li>Quien no está comprometido con resultados</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tint-coral">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Resultados de estudiantes</h2>
+        <p>Espacio reservado — reemplaza cada tarjeta con un testimonio real (nombre, meta lograda, puntaje si aplica).</p>
+      </div>
+      <div class="testi-grid">
+        <div class="testi-card">"[Agrega aquí un testimonio real de un estudiante]"<div class="who">— Nombre, meta lograda</div></div>
+        <div class="testi-card">"[Agrega aquí un testimonio real de un estudiante]"<div class="who">— Nombre, meta lograda</div></div>
+        <div class="testi-card">"[Agrega aquí un testimonio real de un estudiante]"<div class="who">— Nombre, meta lograda</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Inversión</h2>
+        <p>Servicio prepago. Pagas al inicio de cada mes. El costo depende de tu carga horaria semanal.</p>
+      </div>
+      <div class="price-table">
+        <div class="price-row"><div class="name">Nivelación Integral Intensiva <span class="hrs">· 3h/semana</span></div><div class="amount">$240<span class="hrs">/mes</span></div></div>
+        <div class="price-row"><div class="name">Nivelación Integral Intensiva <span class="hrs">· 4h/semana</span></div><div class="amount">$340<span class="hrs">/mes</span></div></div>
+        <div class="price-row"><div class="name">Nivelación Integral Intensiva <span class="hrs">· 5h/semana</span></div><div class="amount">$400<span class="hrs">/mes</span></div></div>
+        <div class="price-row"><div class="name">Speaking <span class="hrs">· exclusivo para nivel B2 demostrado · 5h/semana</span></div><div class="amount">$160<span class="hrs">/mes</span></div></div>
+      </div>
+      <p class="price-note">El cupo es limitado intencionalmente para asegurar la calidad del curso. No buscamos educar a las masas — esto es mentoría de precisión.</p>
+    </div>
+  </section>
+
+  <section class="tint-blue">
+    <div class="wrap">
+      <div class="section-head"><h2>Cómo acceder</h2></div>
+      <div class="access-steps">
+        <div class="access-step"><div class="step-num">1</div><p>Toma el test de ubicación gratuito.</p></div>
+        <div class="access-step"><div class="step-num">2</div><p>Reserva tus clases mediante el pago mensual de tu paquete (transferencia o depósito).</p></div>
+        <div class="access-step"><div class="step-num">3</div><p>Disfruta cada semana de tus horarios en el horario personalizado que elegiste.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head"><h2>Preguntas frecuentes</h2></div>
+      <details><summary>¿Y si mi nivel no es suficiente?</summary><p>Primero evaluamos. Si trabajamos juntos es porque hay una ruta clara hacia tu meta.</p></details>
+      <details><summary>He estudiado antes y no mejoré, ¿por qué ahora sí?</summary><p>Porque aquí trabajamos estructura y rendimiento, no solo contenido.</p></details>
+      <details><summary>Me pongo muy nervioso al hablar</summary><p>Eso forma parte del entrenamiento. No se ignora, se trabaja.</p></details>
+      <details><summary>¿Cómo son los horarios y las clases?</summary><p>Las clases son vía Zoom. Los horarios se acuerdan con el estudiante cada mes. El estudiante recibe acceso a una plataforma virtual de por vida.</p></details>
+      <details><summary>¿Cómo funcionan los pagos y las políticas?</summary><p>El servicio es prepago; se inician clases presentando el comprobante de depósito o transferencia (no se aceptan cheques). Las inasistencias del estudiante se descuentan como hora dada. No existe posibilidad de reagendar, salvo emergencia de salud demostrada con certificado médico. Este es un servicio personal de nivelación — no se otorga certificado de estudios, pero se puede emitir una carta personal de recomendación si se requiere.</p></details>
+    </div>
+  </section>
+
+  <section class="final-cta">
+    <div class="wrap">
+      <span class="eyebrow">Última llamada</span>
+      <h2>Si tu meta internacional es importante, tu preparación también debe serlo.</h2>
+      <p style="margin-left:auto; margin-right:auto;">Postula a la mentoría privada y recibe tu evaluación estratégica inicial.</p>
+      <a class="btn-primary" href="https://masterdavidbasantes.github.io/English-Program/#placement-test-home" target="_blank" rel="noopener">Toma el test de Ubicación Gratuito</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="brand" style="font-size:1rem;">David Basantes</div>
+      <p>English Performance Mentor · Mentoría privada estratégica para TOEFL, IELTS y Speaking Académico.</p>
+    </div>
+    <p>+593 98 760 3969</p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -47,7 +47,8 @@
 
   /* Header */
   header{ position:sticky; top:0; z-index:50; background:rgba(255,255,255,0.9); backdrop-filter:blur(8px); border-bottom:1px solid var(--border); }
-  header .wrap{ display:flex; align-items:center; justify-content:space-between; height:76px; }
+  header .wrap{ display:flex; flex-direction:column; align-items:flex-start; justify-content:center; padding:12px 28px; }
+  .header-phone{ font-size:0.8rem; color:var(--text-faint); font-weight:600; margin-top:2px; }
   .brand{ font-family:var(--display); font-weight:800; font-size:1.15rem; text-decoration:none; }
   .brand span{ color:var(--blue); }
   .nav-cta{ font-family:var(--sans); font-weight:800; font-size:0.9rem; color:#fff; background:var(--coral); padding:11px 22px; border-radius:999px; text-decoration:none; white-space:nowrap; box-shadow:0 4px 0 #D9503D; }
@@ -95,10 +96,10 @@
 
   /* Mentor */
   .mentor-grid{ display:grid; grid-template-columns:250px 1fr; gap:48px; align-items:start; }
-  .mentor-photo{ width:100%; aspect-ratio:3/4; background:var(--bg-tint-coral); border-radius:20px; display:flex; align-items:center; justify-content:center; text-align:center; color:var(--text-faint); font-size:0.85rem; padding:20px; font-weight:600; }
+  .mentor-photo{ width:100%; aspect-ratio:3/4; background:var(--bg-tint-coral); border-radius:20px; display:flex; align-items:center; justify-content:center; text-align:center; color:var(--text-faint); font-size:0.85rem; padding:10px; font-weight:600; }
 
-  .photo-band{ width:100%; aspect-ratio:16/6; background:var(--bg-tint-blue); border-radius:24px; display:flex; align-items:center; justify-content:center; text-align:center; color:var(--text-faint); font-size:0.9rem; font-weight:600; padding:20px; margin-top:40px; }
-  .photo-inline{ width:100%; aspect-ratio:4/3; background:#F4F5F7; border-radius:20px; display:flex; align-items:center; justify-content:center; text-align:center; color:var(--text-faint); font-size:0.85rem; font-weight:600; padding:20px; }
+  .photo-band{ width:100%; aspect-ratio:16/6; background:var(--bg-tint-blue); border-radius:24px; display:flex; align-items:center; justify-content:center; text-align:center; color:var(--text-faint); font-size:0.9rem; font-weight:600; padding:10px; margin-top:40px; }
+  .photo-inline{ width:100%; aspect-ratio:4/3; background:#F4F5F7; border-radius:20px; display:flex; align-items:center; justify-content:center; text-align:center; color:var(--text-faint); font-size:0.85rem; font-weight:600; padding:10px; }
   .problema-grid{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:44px; align-items:center; }
   @media (max-width:860px){ .problema-grid{ grid-template-columns:1fr; } }
   .credentials{ list-style:none; display:grid; gap:10px; margin:20px 0 28px; }
@@ -130,9 +131,9 @@
   .whom-card li{ color:var(--text-dim); font-size:0.95rem; }
 
   /* Testimonials */
-  .testi-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:28px; }
-  .testi-card{ background:#fff; border:1.5px dashed var(--border); border-radius:18px; padding:24px; font-size:0.92rem; color:var(--text-faint); }
-  .testi-card .who{ margin-top:14px; font-weight:600; font-size:0.8rem; color:var(--text-faint); }
+  .testi-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:22px; margin-top:28px; }
+  .testi-card{ background:#fff; border:1.5px solid var(--border); border-radius:18px; padding:24px; font-size:0.95rem; color:var(--text-dim); }
+  .testi-card .who{ margin-top:14px; font-weight:700; font-size:0.8rem; color:var(--blue); }
 
   /* Pricing */
   .price-table{ margin-top:28px; }
@@ -181,7 +182,8 @@
 
 <header>
   <div class="wrap">
-    <a class="brand" href="#top">English Performance <span>Mentor</span></a>
+    <a class="brand" href="#top">David Basantes <span>| English Mentor</span></a>
+    <div class="header-phone">+593 98 760 3969</div>
   </div>
 </header>
 
@@ -346,12 +348,13 @@
     <div class="wrap">
       <div class="section-head">
         <h2>Resultados de estudiantes</h2>
-        <p>Espacio reservado — reemplaza cada tarjeta con un testimonio real (nombre, meta lograda, puntaje si aplica).</p>
+        <p>Lo que dicen quienes ya trabajaron conmigo.</p>
       </div>
       <div class="testi-grid">
-        <div class="testi-card">"[Agrega aquí un testimonio real de un estudiante]"<div class="who">— Nombre, meta lograda</div></div>
-        <div class="testi-card">"[Agrega aquí un testimonio real de un estudiante]"<div class="who">— Nombre, meta lograda</div></div>
-        <div class="testi-card">"[Agrega aquí un testimonio real de un estudiante]"<div class="who">— Nombre, meta lograda</div></div>
+        <div class="testi-card">"Estuvo excelente!"<div class="who">— Estudiante B1</div></div>
+        <div class="testi-card">"Thank you for sharing your knowledge and patience"<div class="who">— Estudiante B2</div></div>
+        <div class="testi-card">"Excelente profesor"<div class="who">— Estudiante B1</div></div>
+        <div class="testi-card">"Ha sido un nivel muy productivo y de mucho aprendizaje, temas complejos pero bien explicados. Muchas gracias."<div class="who">— Estudiante B2</div></div>
       </div>
     </div>
   </section>
@@ -400,6 +403,11 @@
       <h2>Si tu meta internacional es importante, tu preparación también debe serlo.</h2>
       <p style="margin-left:auto; margin-right:auto;">Postula a la mentoría privada y recibe tu evaluación estratégica inicial.</p>
       <a class="btn-primary" href="https://masterdavidbasantes.github.io/English-Program/#placement-test-home" target="_blank" rel="noopener">Toma el test de Ubicación Gratuito</a>
+      <div style="margin-top:28px;">
+        <p style="font-weight:700; color:var(--text);">+593 98 760 3969</p>
+        <p style="font-family:var(--display); font-weight:800; font-size:1.05rem; color:var(--text); margin-top:6px;">Master David Basantes</p>
+        <p style="font-size:0.85rem; color:var(--text-faint); margin-top:2px;">Mentoría Privada Estratégica</p>
+      </div>
     </div>
   </section>
 
